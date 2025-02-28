@@ -49,6 +49,7 @@ export class RestAPIStack extends cdk.Stack {
         memorySize: 128,
         environment: {
           TABLE_NAME: moviesTable.tableName,
+          CAST_TABLE: movieCastsTable.tableName, 
           REGION: 'eu-west-1',
         },
       }
@@ -181,7 +182,6 @@ export class RestAPIStack extends cdk.Stack {
       new apig.LambdaIntegration(getMovieCastMembersFn, { proxy: true })
 );
 
-    
 
       }
     }
